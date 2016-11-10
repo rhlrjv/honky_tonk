@@ -2,6 +2,7 @@ Honky Tonk
 ================
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![CircleCI](https://circleci.com/gh/rhlrjv/honky_tonk/tree/master.svg?style=svg)](https://circleci.com/gh/rhlrjv/honky_tonk/tree/master)
 
 
 Ruby on Rails
