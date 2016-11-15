@@ -35,13 +35,9 @@ class CatalogsController < ApplicationController
     render :edit
   end
 
-  # DELETE /catalogs/1
-  # DELETE /catalogs/1.json
   def destroy
-    @catalog.destroy
-    respond_to do |format|
-      format.html { redirect_to catalogs_url, notice: 'Catalog was successfully destroyed.' }
-      format.json { head :no_content }
+    run Catalog::Delete do
+      return redirect_to catalogs_url, notice: 'Catalog was successfully destroyed.'
     end
   end
 
