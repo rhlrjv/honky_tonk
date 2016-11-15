@@ -10,11 +10,10 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-gem 'trailblazer'
 gem 'trailblazer-rails'
+gem 'uber', '~> 0.0.15'
 
 gem 'cells-rails'
-gem 'cells', '4.1.2'
 gem 'cells-slim'
 gem 'kaminari-cells'
 # gem 'file_validators', '~> 1.2'

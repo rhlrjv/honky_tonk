@@ -24,17 +24,10 @@ class CatalogsController < ApplicationController
   # POST /catalogs
   # POST /catalogs.json
   def create
-    @catalog = Catalog.new(catalog_params)
-
-    respond_to do |format|
-      if @catalog.save
-        format.html { redirect_to @catalog, notice: 'Catalog was successfully created.' }
-        format.json { render :show, status: :created, location: @catalog }
-      else
-        format.html { render :new }
-        format.json { render json: @catalog.errors, status: :unprocessable_entity }
-      end
+    run Catalog::Create do |catalog|
+      return redirect_to catalog.model, notice: 'Catalog was successfully created.'
     end
+    render :new
   end
 
   # PATCH/PUT /catalogs/1
