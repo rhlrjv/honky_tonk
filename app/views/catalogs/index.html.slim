@@ -1,0 +1,25 @@
+h1 Listing catalogs
+
+table
+  thead
+    tr
+      th Sku
+      th Name
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @catalogs.each do |catalog|
+      tr
+        td = catalog.sku
+        td = catalog.name
+        td = catalog.description
+        td = link_to 'Show', catalog
+        td = link_to 'Edit', edit_catalog_path(catalog)
+        td = link_to 'Destroy', catalog, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Catalog', new_catalog_path
