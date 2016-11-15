@@ -21,8 +21,6 @@ class CatalogsController < ApplicationController
   def edit
   end
 
-  # POST /catalogs
-  # POST /catalogs.json
   def create
     run Catalog::Create do |catalog|
       return redirect_to catalog.model, notice: 'Catalog was successfully created.'
@@ -30,18 +28,11 @@ class CatalogsController < ApplicationController
     render :new
   end
 
-  # PATCH/PUT /catalogs/1
-  # PATCH/PUT /catalogs/1.json
   def update
-    respond_to do |format|
-      if @catalog.update(catalog_params)
-        format.html { redirect_to @catalog, notice: 'Catalog was successfully updated.' }
-        format.json { render :show, status: :ok, location: @catalog }
-      else
-        format.html { render :edit }
-        format.json { render json: @catalog.errors, status: :unprocessable_entity }
-      end
+    run Catalog::Update do |catalog|
+      return redirect_to catalog.model, notice: 'Catalog was successfully updated.'
     end
+    render :edit
   end
 
   # DELETE /catalogs/1
