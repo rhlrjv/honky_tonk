@@ -1,5 +1,6 @@
 h1 Listing catalogs
 
+
 table
   thead
     tr
@@ -11,14 +12,7 @@ table
       th
 
   tbody
-    - @catalogs.each do |catalog|
-      tr
-        td = catalog.sku
-        td = catalog.name
-        td = catalog.description
-        td = link_to 'Show', catalog
-        td = link_to 'Edit', edit_catalog_path(catalog)
-        td = link_to 'Destroy', catalog, data: { confirm: 'Are you sure?' }, method: :delete
+    == concept('catalog/cell/listing')
 
 br
 

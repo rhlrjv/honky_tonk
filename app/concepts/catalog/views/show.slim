@@ -1,0 +1,7 @@
+tr
+  td = model.sku
+  td = model.name
+  td = model.description
+  td = link_to 'Show', model
+  td = link_to 'Edit', edit_catalog_path(model)
+  td = link_to 'Destroy', model, data: { confirm: 'Are you sure?' }, method: :delete

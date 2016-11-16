@@ -1,24 +1,8 @@
 class CatalogsController < ApplicationController
   before_action :set_catalog, only: [:show, :edit, :update, :destroy]
 
-  # GET /catalogs
-  # GET /catalogs.json
-  def index
-    @catalogs = Catalog.all
-  end
-
-  # GET /catalogs/1
-  # GET /catalogs/1.json
-  def show
-  end
-
-  # GET /catalogs/new
   def new
     @catalog = Catalog.new
-  end
-
-  # GET /catalogs/1/edit
-  def edit
   end
 
   def create
