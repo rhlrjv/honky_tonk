@@ -1,5 +1,5 @@
 class CatalogsController < ApplicationController
-  before_action :set_catalog, only: [:show, :edit, :update, :destroy]
+  before_action :set_catalog, only: [:show, :edit]
 
   def new
     @catalog = Catalog.new
@@ -28,11 +28,6 @@ class CatalogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_catalog
-      @catalog = Catalog.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def catalog_params
-      params.require(:catalog).permit(:sku, :name, :description)
+      @catalog = present(Catalog::Show).model
     end
 end
