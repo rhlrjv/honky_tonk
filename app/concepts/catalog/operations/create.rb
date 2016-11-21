@@ -1,3 +1,4 @@
+require 'reform/form/validation/unique_validator.rb'
 class Catalog < ApplicationRecord
   class Create < Trailblazer::Operation
 
@@ -8,6 +9,10 @@ class Catalog < ApplicationRecord
       property :sku
       property :name
       property :description
+
+      # validates :sku, presence: true
+      validates :sku, unique: true
+      validates :name, presence: true
     end
 
     def process(params)

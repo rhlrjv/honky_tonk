@@ -2,14 +2,17 @@ class CatalogsController < ApplicationController
   before_action :set_catalog, only: [:show, :edit]
 
   def new
-    @catalog = Catalog.new
+    form Catalog::Create
+    render_form
   end
 
   def create
     run Catalog::Create do |catalog|
       return redirect_to catalog.model, notice: 'Catalog was successfully created.'
     end
-    render :new
+
+    @form.prepopulate!
+    render_form
   end
 
   def update
@@ -26,8 +29,13 @@ class CatalogsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_catalog
-      @catalog = present(Catalog::Show).model
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_catalog
+    @catalog = present(Catalog::Show).model
+  end
+
+  def render_form
+    render text: concept("catalog/cell/form", @operation),
+           layout: true
+  end
 end
